@@ -34,7 +34,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <link rel="stylesheet" href="css/fontawesome-all.css">
     <!-- Font-Awesome-Icons-CSS 
     <link href="//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700" rel="stylesheet"> -->
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -141,7 +141,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					
                         <div class="form">
                             <h4 class="mb-4 text-left">Send us a message</h4>
-                            <form id="gform" method="post" action="https://script.google.com/macros/s/AKfycbz1eZfZaTPTAdzIpB-e1vQfdQV3NS75cv4USezp/exec" enctype="multipart/form-data">
+                            <form id="gform" method="POST" action="https://script.google.com/macros/s/AKfycbz1eZfZaTPTAdzIpB-e1vQfdQV3NS75cv4USezp/exec" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label class="my-2">Name</label>
                                     <input class="form-control" type="text" name="yourname" placeholder="" required="">
@@ -223,7 +223,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!--// end-smoth-scrolling -->
 
     <!-- //js -->
-
+<script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
     <script src="js/bootstrap.js"></script>
 
 </body>
